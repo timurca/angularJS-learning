@@ -12,25 +12,24 @@
         <script src="app.js"></script>
 
     </head>
-    <body>
+    <body ng-controller="menuController">
+    <h1>{{ name }}</h1>
+
+    
+    
+
 <h1>
     <ul>
-        <li><a href="#"><i class="fa fa-home"></i> Home ({{ handle }})</a></li>
-        <li><a href="#/second"><i></i> Second ({{ handle }})</a></li>
+        <li><a href="#">Home <span id="num1"></span></a></li>
+        <li><a href="#/second"> Second <span id="num2"></span></a></li>
     </ul>
 </h1>
 
+    <div class="container" style="background: #EEE; padding: 50px;">
 
-
-
-    
-  
-     
-        <div class="container">
-
-            <div ng-view></div>
+        <div ng-view></div>
             
-		</div>
+	</div>
 
     </body>
 </html>

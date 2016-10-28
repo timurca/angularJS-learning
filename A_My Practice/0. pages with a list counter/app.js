@@ -16,27 +16,35 @@ myApp.config(function ($routeProvider) {
     
 });
 
-myApp.controller('mainController', ['$scope', '$log', function($scope, $log) {
+myApp.controller('menuController', ['$scope', function($scope) {
 
-    liCount();   
-    $scope.name = 'Main - List No. 1';
-    $scope.handle = liCount;
-    
+    $scope.name = 'Menu';
+
 
     
 }]);
 
-myApp.controller('secondController', ['$scope', '$log', function($scope, $log) {
+myApp.controller('mainController', ['$scope', function($scope) {
+
+    $scope.name = 'List #1';
+    $scope.handle = liCount('list1', 'num1'); 
+
     
-    liCount();
-    $scope.name = 'Second - List No. 2';
-    $scope.handle = liCount;
+}]);
+
+myApp.controller('secondController', ['$scope', function($scope) {
+    
+    $scope.name = 'List #2';
+    $scope.handle = liCount('list2', 'num2');
+   
     
 }]);
 
 
-var liCount = function(){
-    var ul = document.getElementById('thelist');
+var liCount = function(list_id, output) {
+    console.log(list_id); //list id: list1 
+    var ul = document.getElementById(list_id);
     var li = ul.getElementsByTagName('li').length;
-    console.log(li);
+    console.log(li); //list length: 5
+    document.getElementById(output).innerHTML = '(' + li + ')'; 
 }
